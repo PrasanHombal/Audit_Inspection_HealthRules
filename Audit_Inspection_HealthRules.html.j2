@@ -1,23 +1,20 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <style>
-      table,
-      th,
-      td {
-        border: 1px solid black;
-        padding: 5px;
-      }
+  <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-      /* Set background color to red if enabled is false */
-      td.disabled {
-        background-color: red;
-      }
-    </style>
-	<link rel="stylesheet" href="css_final.css">    
-    <script src="filter.js"></script>
+    <link rel="stylesheet" href="./css_final.css">
+    <script src="./filter.js"></script>    
+    <title>Audit Inspection Health Rules</title>
   </head>
   <body>
+      <div class="heading">
+    <h1>Audit Inspection Health Rules</h1>
+</div>
+<div class="outer-wrapper">
+    <div class="table-wrapper">
     <table id="emp-table">
       <thead>
         <tr>
@@ -53,5 +50,7 @@
         getUniqueValuesFromColumn();
         
     </script>
+	</div>
+	</div>
   </body>
 </html>

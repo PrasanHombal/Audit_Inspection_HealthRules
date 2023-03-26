@@ -25,7 +25,7 @@
       set_fact:
         name_id_map: "{{ name_id_map|default({})|combine({item.name: item.id}) }}"
       loop: "{{ result.content }}"
-      when: item.name is search("VCS-WFO-") and item.name not in ['VCS-WFO-ASR', 'VCS-WFO-POCLAB', 'VCS-WFO-qa', 'VCS-WFO-F2-UE', 'VCS-WFO-LD', 'VCS-WFO-XMT1', 'VCS-WFO-prtn', 'VCS-WFO-exp', 'VCS-WFO-shre', 'VCS-WFO-qa2', 'VCS-WFO-ROOT']
+      when: item.name is search("VCS-WFO-a15") and item.name not in ['VCS-WFO-ASR', 'VCS-WFO-POCLAB', 'VCS-WFO-qa', 'VCS-WFO-F2-UE', 'VCS-WFO-LD', 'VCS-WFO-XMT1', 'VCS-WFO-prtn', 'VCS-WFO-exp', 'VCS-WFO-shre', 'VCS-WFO-qa2', 'VCS-WFO-ROOT']
     
     # Call the health-rules API for the fetched environments
     - name: Calling Health checks

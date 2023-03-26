@@ -19,17 +19,13 @@
         timeout: 30
       register: result
       
-    # Declare empty array object to store the fetched AppD application Ids
-    - name: Initialize list of IDs
-      set_fact:
-       id_list: []
 
-    # Fetch only the Environments whose name include the string 'VCS-WFO-' and initialze the id_list
+    # Fetch only the Environments whose name include the string 'VCS-WFO-' and initialze the name_id_map
     - name: Extract IDs
       set_fact:
         name_id_map: "{{ name_id_map|default({})|combine({item.name: item.id}) }}"
       loop: "{{ result.content }}"
-      when: item.name is search("VCS-WFO-")
+      when: item.name is search("VCS-WFO-") and item.name not in ['VCS-WFO-ASR', 'VCS-WFO-POCLAB', 'VCS-WFO-qa', 'VCS-WFO-F2-UE', 'VCS-WFO-LD', 'VCS-WFO-XMT1', 'VCS-WFO-prtn', 'VCS-WFO-exp', 'VCS-WFO-shre', 'VCS-WFO-qa2', 'VCS-WFO-ROOT']
     
     # Call the health-rules API for the fetched environments
     - name: Calling Health checks
@@ -52,6 +48,7 @@
       set_fact:
        health_rules: "{{ health_rules|default({})|combine({item.item.key: item.json}) }}"
       loop: "{{ respo.results }}"
+   
       
     - name: Set JSON array fact
       set_fact:

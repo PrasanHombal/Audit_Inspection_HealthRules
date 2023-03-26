@@ -2,7 +2,7 @@
 <html>
   <head>
   <style>
-       /* Set background color to red if enabled is false */
+            /* Set background color to red if enabled is false */
 td.disabled {
         background-color: red;
 }
@@ -153,6 +153,7 @@ table td {
         .appendTo('#example thead');
  
     var table = $('#example').DataTable({
+    paging: false,
         orderCellsTop: true,
         fixedHeader: true,
         initComplete: function () {
